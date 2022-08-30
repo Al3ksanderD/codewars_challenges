@@ -1,3 +1,6 @@
+import unittest
+
+
 def rot13(message):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                 'v', 'w', 'x', 'y', 'z']
@@ -14,10 +17,12 @@ def rot13(message):
             else:
                 if message[x].isupper():
                     encoded += alphabet[index].upper()
-                encoded += alphabet[index]
+                else:
+                    encoded += alphabet[index]
         else:
             encoded += message[x]
     return encoded
 
+test.assert_equals(rot13(rot13("Test")),"Test")
 print(rot13("Nibvq fhpprff ng nyy pbfgf!"))
 
